@@ -11,15 +11,25 @@ namespace ConsoleApplication1
             Inventory inventory = new Inventory();
             InitializeInventory(inventory);
 
-            Guitar whatErinLikes = new Guitar();
-            whatErinLikes.Model = "stratocastor";
-            //whatErinLikes.Builder = CommonLib.Builder.FENDER;
+            GuitarSpec whatErinLikes = new GuitarSpec();
+            //whatErinLikes.Model = "stratocastor";
+            whatErinLikes.Builder = CommonLib.Builder.FENDER;
             //whatErinLikes.Type = CommonLib.Type.ACOUSTIC;
 
-            Guitar guitar = inventory.Search(whatErinLikes);
-            if (guitar != null)
+            List<Guitar> matchingGuitar = inventory.Search(whatErinLikes);
+            if (matchingGuitar != null)
             {
-                Console.WriteLine("Erin, you might like this {0} {1}", guitar.SerialNumber, guitar.Type);
+                Console.WriteLine("Erin, you might like this guitar(s):");
+                foreach (var guitar in matchingGuitar)
+                {
+                    Console.WriteLine("\tWe have a {0} {1} guitar:\n\t\t {3} back and sides {4}\n\tYou can have it for {5}"
+                        , guitar.Specs.Builder.ToString()
+                        , guitar.Model
+                        , guitar.Specs.Type.ToString()
+                        , guitar.Specs.BackWood.ToString()
+                        , guitar.Specs.TopWood.ToString()
+                        , guitar.Price);
+                }
             }
             else
             {
@@ -29,13 +39,27 @@ namespace ConsoleApplication1
 
         private static void InitializeInventory(Inventory inventory)
         {
-            inventory.AddGuitar("ABC123"
-                , 1.50
+            inventory.AddGuitar("V95693"
+                , 1499.95
                 , CommonLib.Builder.FENDER
                 , "Stratocastor"
                 , CommonLib.Type.ELECTRIC
                 , CommonLib.Wood.ALDER
                 , CommonLib.Wood.ALDER);
+            inventory.AddGuitar("V9512"
+                , 1599.95
+                , CommonLib.Builder.FENDER
+                , "Stratocastor"
+                , CommonLib.Type.ELECTRIC
+                , CommonLib.Wood.ALDER
+                , CommonLib.Wood.ALDER);
+            inventory.AddGuitar("B9510"
+                , 1099.95
+                , CommonLib.Builder.GIBSON
+                , "Senti"
+                , CommonLib.Type.ACOUSTIC
+                , CommonLib.Wood.CEDAR
+                , CommonLib.Wood.CEDAR);
         }
     }
 }

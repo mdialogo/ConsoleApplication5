@@ -24,14 +24,13 @@ namespace ConsoleApplication1
         {
             Guitar guitar = new Guitar();
 
-
             guitar.SerialNumber = serialNumber;
             guitar.Price = price;
-            guitar.Builder = builder;
+            guitar.Specs.Builder = builder;
             guitar.Model = model;
-            guitar.Type = type;
-            guitar.BackWood = backWood;
-            guitar.TopWood = topWood;
+            guitar.Specs.Type = type;
+            guitar.Specs.BackWood = backWood;
+            guitar.Specs.TopWood = topWood;
 
             guitars.Add(guitar);
         }
@@ -46,18 +45,19 @@ namespace ConsoleApplication1
             return null;
         }
 
-        public Guitar Search(Guitar guitar)
+        public List<Guitar> Search(GuitarSpec guitarSpec)
         {
+            List<Guitar> matchingGuitars = new List<Guitar>();
             foreach (var guitr in guitars)
             {
-                if (guitr.Builder == guitar.Builder
-                    || guitr.Model.Equals(guitar.Model, StringComparison.OrdinalIgnoreCase)
-                    || guitr.Type == guitar.Type
-                    || guitr.BackWood == guitar.BackWood
-                    || guitr.TopWood == guitar.TopWood)
-                    return guitr;
+                if (guitr.Specs.Builder == guitarSpec.Builder
+                    || guitr.Model.Equals(guitarSpec.Model, StringComparison.OrdinalIgnoreCase)
+                    || guitr.Specs.Type == guitarSpec.Type
+                    || guitr.Specs.BackWood == guitarSpec.BackWood
+                    || guitr.Specs.TopWood == guitarSpec.TopWood)
+                    matchingGuitars.Add(guitr);
             }
-            return null;
+            return matchingGuitars;
         }
     }
 }
