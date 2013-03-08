@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication5", "ConsoleApplication5\ConsoleApplication5.csproj", "{C4CD42AD-8955-4549-9EA0-216E630405C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RicksSearchGuitar", "ConsoleApplication5\RicksSearchGuitar.csproj", "{C4CD42AD-8955-4549-9EA0-216E630405C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
