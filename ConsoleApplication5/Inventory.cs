@@ -27,10 +27,8 @@ namespace RicksInventorySearchTool
         {
             List<Guitar> matchingGuitars = new List<Guitar>();
             foreach (var guitr in this.guitars)
-            {
                 if (guitr.Specs.Matches(searchSpec))
                     matchingGuitars.Add(guitr);
-            }
             return matchingGuitars;
         }
     }
