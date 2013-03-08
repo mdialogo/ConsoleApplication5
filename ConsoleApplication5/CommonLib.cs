@@ -40,5 +40,12 @@ namespace ConsoleApplication1
             ALDER,
             SITKA
         }
+
+        public enum Status
+        {
+            BRANDNEW,
+            SECONDHAND,
+            REFURBISHED
+        }
     }
 }

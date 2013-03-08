@@ -9,12 +9,11 @@ namespace ConsoleApplication1
     {
         public string SerialNumber { get; set; }
         public double Price { get; set; }
-        public string Model { get; set; }
         public GuitarSpec Specs { get; set; }
 
-        public Guitar()
+        public Guitar(GuitarSpec guitarSpecs)
         {
-            Specs = new GuitarSpec();
+            Specs = guitarSpecs;
         }
     }
 }

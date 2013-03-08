@@ -14,30 +14,18 @@ namespace ConsoleApplication1
             guitars = new List<Guitar>();
         }
 
-        public void AddGuitar(string serialNumber
-            , double price
-            , CommonLib.Builder builder
-            , string model
-            , CommonLib.Type type
-            , CommonLib.Wood backWood
-            , CommonLib.Wood topWood)
+        public void AddGuitar(string serialNumber, double price, GuitarSpec guitarSpecs)
         {
-            Guitar guitar = new Guitar();
-
+            Guitar guitar = new Guitar(guitarSpecs);
             guitar.SerialNumber = serialNumber;
             guitar.Price = price;
-            guitar.Specs.Builder = builder;
-            guitar.Model = model;
-            guitar.Specs.Type = type;
-            guitar.Specs.BackWood = backWood;
-            guitar.Specs.TopWood = topWood;
 
-            guitars.Add(guitar);
+            this.guitars.Add(guitar);
         }
 
         public Guitar GetGuitar(string serialNumber)
         {
-            foreach (var guitar in guitars)
+            foreach (var guitar in this.guitars)
             {
                 if (guitar.SerialNumber.Equals(serialNumber))
                     return guitar;
@@ -45,16 +33,12 @@ namespace ConsoleApplication1
             return null;
         }
 
-        public List<Guitar> Search(GuitarSpec guitarSpec)
+        public List<Guitar> Search(GuitarSpec searchSpec)
         {
             List<Guitar> matchingGuitars = new List<Guitar>();
-            foreach (var guitr in guitars)
+            foreach (var guitr in this.guitars)
             {
-                if (guitr.Specs.Builder == guitarSpec.Builder
-                    || guitr.Model.Equals(guitarSpec.Model, StringComparison.OrdinalIgnoreCase)
-                    || guitr.Specs.Type == guitarSpec.Type
-                    || guitr.Specs.BackWood == guitarSpec.BackWood
-                    || guitr.Specs.TopWood == guitarSpec.TopWood)
+                if (guitr.Specs.Matches(searchSpec))
                     matchingGuitars.Add(guitr);
             }
             return matchingGuitars;
