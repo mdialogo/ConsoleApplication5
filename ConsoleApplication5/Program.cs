@@ -78,7 +78,7 @@ namespace ConsoleApplication1
                 , CommonLib.Wood.CEDAR
                 , 6
                 , 1.0
-                , CommonLib.Status.BRANDNEW);
+                , CommonLib.Status.REFURBISHED);
         }
 
         private static void AddNewGuitar(string serialNumber

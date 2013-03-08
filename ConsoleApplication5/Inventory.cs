@@ -23,16 +23,6 @@ namespace ConsoleApplication1
             this.guitars.Add(guitar);
         }
 
-        public Guitar GetGuitar(string serialNumber)
-        {
-            foreach (var guitar in this.guitars)
-            {
-                if (guitar.SerialNumber.Equals(serialNumber))
-                    return guitar;
-            }
-            return null;
-        }
-
         public List<Guitar> Search(GuitarSpec searchSpec)
         {
             List<Guitar> matchingGuitars = new List<Guitar>();
