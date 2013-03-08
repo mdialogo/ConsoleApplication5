@@ -8,7 +8,7 @@
     <ProjectGuid>{C4CD42AD-8955-4549-9EA0-216E630405C2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <RootNamespace>RicksInventorySearchTool</RootNamespace>
     <AssemblyName>ConsoleApplication5</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
