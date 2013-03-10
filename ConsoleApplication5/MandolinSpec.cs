@@ -5,7 +5,8 @@ using System.Text;
 
 namespace RicksInventorySearchTool
 {
-    public class MandolinSpec
+    public class MandolinSpec : InstrumentSpec
     {
+        
     }
 }

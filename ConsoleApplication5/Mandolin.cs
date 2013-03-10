@@ -7,9 +7,9 @@ namespace RicksInventorySearchTool
 {
     public class Mandolin : Instrument
     {
-        public GuitarSpec Specs { get; set; }
+        public MandolinSpec Specs { get; set; }
 
-        public Mandolin(GuitarSpec specs)
+        public Mandolin(MandolinSpec specs)
         {
             this.Specs = specs;
         }
