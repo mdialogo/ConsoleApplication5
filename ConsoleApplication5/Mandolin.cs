@@ -5,13 +5,13 @@ using System.Text;
 
 namespace RicksInventorySearchTool
 {
-    public class Guitar : Instrument
+    public class Mandolin : Instrument
     {
         public GuitarSpec Specs { get; set; }
 
-        public Guitar(GuitarSpec guitarSpecs)
+        public Mandolin(GuitarSpec specs)
         {
-            Specs = guitarSpecs;
+            this.Specs = specs;
         }
     }
 }

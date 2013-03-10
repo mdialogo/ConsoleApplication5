@@ -19,7 +19,8 @@ namespace RicksInventorySearchTool
             //whatErinLikes.Builder = CommonLib.Builder.FENDER;
             //whatErinLikes.Type = CommonLib.Type.ACOUSTIC;
             //whatErinLikes.Weight = 1.0;
-            whatErinLikes.Status = CommonLib.Status.BRANDNEW;
+            //whatErinLikes.Status = CommonLib.Status.BRANDNEW;
+            whatErinLikes.Freebie = "pick";
 
             List<Guitar> matchingGuitar = inventory.Search(whatErinLikes);
             if (matchingGuitar != null)
@@ -27,7 +28,7 @@ namespace RicksInventorySearchTool
                 Console.WriteLine("Erin, you might like this guitar(s):");
                 foreach (var guitar in matchingGuitar)
                 {
-                    Console.WriteLine("\tWe have a {0} {1} {2} {8} guitar:\n\t {3} back and sides {4} {6} strings {7} kgs.\n\tYou can have it for ${5}!\n"
+                    Console.WriteLine("\tWe have a {0} {1} {2} {8} guitar:\n\t {3} back and sides {4} {6} strings {7} kgs.\n\tYou can have it for ${5} only and with a {9}!\n"
                         , guitar.Specs.Builder.ToString()
                         , guitar.Specs.Model
                         , guitar.Specs.Type.ToString()
@@ -36,7 +37,8 @@ namespace RicksInventorySearchTool
                         , guitar.Price
                         , guitar.Specs.NumberOfStrings
                         , String.Format("{0:N2}", guitar.Specs.Weight)
-                        , guitar.Specs.Status.ToString());
+                        , guitar.Specs.Status.ToString()
+                        , guitar.Specs.Freebie);
                 }
             }
             else
@@ -56,7 +58,8 @@ namespace RicksInventorySearchTool
                 , CommonLib.Wood.ALDER
                 , 6
                 , 1.5
-                , CommonLib.Status.BRANDNEW);
+                , CommonLib.Status.BRANDNEW
+                , "");
 
             AddNewGuitar("V9512"
                 , 1599.95
@@ -67,7 +70,8 @@ namespace RicksInventorySearchTool
                 , CommonLib.Wood.ALDER
                 , 6
                 , 1.5
-                , CommonLib.Status.SECONDHAND);
+                , CommonLib.Status.SECONDHAND
+                , "free pick");
 
             AddNewGuitar("B9510"
                 , 1099.95
@@ -78,7 +82,8 @@ namespace RicksInventorySearchTool
                 , CommonLib.Wood.CEDAR
                 , 6
                 , 1.0
-                , CommonLib.Status.REFURBISHED);
+                , CommonLib.Status.REFURBISHED
+                , "");
         }
 
         private static void AddNewGuitar(string serialNumber
@@ -90,7 +95,8 @@ namespace RicksInventorySearchTool
             , CommonLib.Wood topWood
             , int numStrings
             , double weight
-            , CommonLib.Status status)
+            , CommonLib.Status status
+            , string freebie)
         {
             GuitarSpec guitarSpecs = new GuitarSpec();
             guitarSpecs.Builder = builder;
@@ -101,6 +107,7 @@ namespace RicksInventorySearchTool
             guitarSpecs.NumberOfStrings = numStrings;
             guitarSpecs.Weight = weight;
             guitarSpecs.Status = status;
+            guitarSpecs.Freebie = freebie;
 
             inventory.AddGuitar(serialNumber
                 , price

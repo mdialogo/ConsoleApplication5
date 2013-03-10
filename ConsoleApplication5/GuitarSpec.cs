@@ -15,6 +15,7 @@ namespace RicksInventorySearchTool
         public int NumberOfStrings { get; set; }
         public double Weight { get; set; }
         public CommonLib.Status Status { get; set; }
+        public string Freebie { get; set; }
 
         public bool Matches(GuitarSpec searchSpecs)
         {
@@ -25,7 +26,8 @@ namespace RicksInventorySearchTool
                     || this.TopWood == searchSpecs.TopWood
                     || this.NumberOfStrings == searchSpecs.NumberOfStrings
                     || this.Weight == searchSpecs.Weight
-                    || this.Status == searchSpecs.Status;
+                    || this.Status == searchSpecs.Status
+                    || this.Freebie.IndexOf(searchSpecs.Freebie,StringComparison.OrdinalIgnoreCase) >=0 ;
         }
     }
 }
